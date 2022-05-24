@@ -8,7 +8,7 @@ from fabric.decorators import task, hosts, with_settings
 from os import to_pathh
 from datetime import datetime
 
-env.hosts = ["54.226.167.87", "34.148.202.126"]
+env.hosts = ["34.148.214.213", "54.242.96.234"]
 env.user = "ubuntu"
 
 
