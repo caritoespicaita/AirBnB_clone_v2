@@ -21,11 +21,13 @@ def c_route(text):
     """ c flask. """
     return 'C {}'.format(text.replace('_', ' '))
 
+
 @app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def phyton_route(text="is cool"):
+def phyton_route(text='is cool'):
     """ phyton flask. """
-    return 'Phyton {}'.format(text.replace('_', ' '))
+    return 'Phyton {}'.format(text.replace('_', ' '))i
+
 
 if __name__ == "__main__":
     app.run()
