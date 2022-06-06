@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 from models.base_model import Base
 from sqlalchemy import Column, String, ForeignKey
 
+
 class Review(BaseModel, Base):
     """ Review classto store review information
         Inherits from SQLAlchemy Base and links to the MySQL table reviews.

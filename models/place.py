@@ -18,6 +18,7 @@ place_amenity = Table('place_amenity', Base.metadata,
                              nullable=False)
                       )
 
+
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
@@ -32,8 +33,11 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
-        reviews = relationship('Review', backref='place', cascade='all, delete')
-        amenities = relationship("Amenity", secondary=place_amenity, backref="place", viewonly=False)
+        reviews = relationship('Review',
+                               backref='place', cascade='all, delete')
+        amenities = relationship(
+            "Amenity", secondary=place_amenity,
+            backref="place", viewonly=False)
     else:
         @property
         def reviews(self):
@@ -45,7 +49,7 @@ class Place(BaseModel, Base):
                 if self.id == i.state_id:
                     lista_retorno.append(i)
             return lista_retorno
-        
+
         @property
         def amenities(self):
             """Getter amenities"""
